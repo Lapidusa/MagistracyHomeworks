@@ -1,0 +1,9 @@
+{
+  "last_name": "Иванов",
+  "first_name": "Петр",
+  "birth_date": "1990-05-10",
+  "phone": "+79991234567",
+  "email": "test@example.com",
+  "reasons": [],
+  "problem_found_at": null
+}

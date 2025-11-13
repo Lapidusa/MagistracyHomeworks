@@ -1,0 +1,12 @@
+{
+  "last_name": "Петров",
+  "first_name": "Алексей",
+  "birth_date": "1985-01-02",
+  "phone": "+79990001122",
+  "email": "user@example.com",
+  "reasons": [
+    "нет доступа к сети",
+    "не приходят письма"
+  ],
+  "problem_found_at": "2025-11-12T09:15:00"
+}
