@@ -1,6 +1,6 @@
 from typing import Optional, List
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ConfigDict
 
 
 class StudentBase(BaseModel):
@@ -26,8 +26,7 @@ class StudentUpdate(BaseModel):
 class StudentOut(StudentBase):
   id: int
 
-  class Config:
-      orm_mode = True
+  model_config = ConfigDict(from_attributes=True)
 
 
 class UserRegister(BaseModel):
@@ -53,3 +52,19 @@ class RefreshIn(BaseModel):
 
 class MessageOut(BaseModel):
   detail: str
+
+
+class CSVImportRequest(BaseModel):
+  path: str = Field(
+    ...,
+    description="Путь к CSV-файлу со студентами",
+    example="../hw9t9/students.csv",
+  )
+
+
+class BulkDeleteRequest(BaseModel):
+  ids: List[int] = Field(
+    ...,
+    description="Список ID студентов для удаления",
+    example=[1, 2, 3],
+  )
