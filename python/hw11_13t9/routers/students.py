@@ -5,10 +5,10 @@ import json
 
 from fastapi import APIRouter, Depends, HTTPException, status, BackgroundTasks
 
-from database import get_db, SessionLocal
-from models import Student
-from repositories import StudentsRepository
-from schemas import (
+from ..database import get_db, SessionLocal
+from ..models import Student
+from ..repositories import StudentsRepository
+from ..schemas import (
     StudentCreate,
     StudentUpdate,
     StudentOut,
@@ -16,8 +16,8 @@ from schemas import (
     CSVImportRequest,
     BulkDeleteRequest,
 )
-from security import get_current_user, require_write_user
-from cache import redis_client, invalidate_students_cache
+from ..security import get_current_user, require_write_user
+from ..cache import redis_client, invalidate_students_cache
 from sqlalchemy.orm import Session
 from sqlalchemy import delete as sa_delete
 

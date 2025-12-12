@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 
-from database import engine
-from models import Base
-from routers import auth as auth_router
-from routers import students as students_router
+from .database import engine
+from .models import Base
+from .routers import auth as auth_router
+from .routers import students as students_router
 
 app = FastAPI(
     title="Students CRUD API with Auth",

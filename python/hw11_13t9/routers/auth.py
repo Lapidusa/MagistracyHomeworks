@@ -3,16 +3,16 @@ from datetime import timedelta
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
-from database import get_db
-from models import User, Token
-from schemas import (
+from ..database import get_db
+from ..models import User, Token
+from ..schemas import (
     UserRegister,
     UserLogin,
     TokenPairOut,
     MessageOut,
     RefreshIn,
 )
-from security import (
+from ..security import (
     hash_password,
     verify_password,
     generate_token_pair,
@@ -156,6 +156,9 @@ def logout(
     token_obj: Token = Depends(get_current_token),
     db: Session = Depends(get_db),
 ):
-    token_obj.is_active = False
+    db.query(Token).filter(Token.id == token_obj.id).update(
+        {"is_active": False},
+        synchronize_session=False,
+    )
     db.commit()
     return MessageOut(detail="Logged out successfully")

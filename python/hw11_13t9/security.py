@@ -6,8 +6,8 @@ from typing import Optional
 from fastapi import Depends, HTTPException, status, Request, Query
 from sqlalchemy.orm import Session
 
-from database import get_db
-from models import Token, User
+from .database import get_db
+from hw11_13t9.models import Token, User
 
 PASSWORD_SALT = "very-secret-salt-for-homework"
 

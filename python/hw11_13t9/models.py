@@ -1,7 +1,7 @@
 from sqlalchemy import String, Float, Integer, DateTime, Boolean, ForeignKey
 from sqlalchemy.orm import mapped_column, relationship
 
-from database import Base
+from .database import Base
 
 
 class Student(Base):
